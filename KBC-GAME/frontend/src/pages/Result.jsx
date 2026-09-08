@@ -1,0 +1,3 @@
+import {useLocation,useNavigate} from "react-router-dom";
+export default function Result(){const {state}=useLocation();const nav=useNavigate();const prize=state?.prize||0;
+return <main className="min-h-[calc(100vh-73px)] flex items-center justify-center p-6 text-center"><div className="bg-white/10 p-10 rounded-3xl max-w-lg w-full"><div className="text-6xl mb-4">{state?.status==="won"?"🏆":"🎮"}</div><h1 className="text-4xl font-black text-yellow-400">{state?.status==="won"?"Congratulations!":"Game Over"}</h1><p className="mt-5 text-xl">Your winnings</p><p className="text-5xl font-black mt-2">₹{prize.toLocaleString("en-IN")}</p><button onClick={()=>nav("/game")} className="mt-8 bg-yellow-400 text-black font-bold px-8 py-3 rounded-full">Play Again</button></div></main>}
